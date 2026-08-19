@@ -21,7 +21,10 @@ const services = [
 ];
 
 function reserve(service: string) {
-  const message = `Hola Leonel! Quiero reservar un turno para ${service}. ¿Qué horarios tenés disponibles?`;
+  const message =
+    service === 'un turno'
+      ? 'Hola Leonel! Quiero reservar un turno. ¿Qué horarios tenés disponibles?'
+      : `Hola Leonel! Quiero reservar un turno para ${service}. ¿Qué horarios tenés disponibles?`;
   const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
   window.open(url, '_blank');
